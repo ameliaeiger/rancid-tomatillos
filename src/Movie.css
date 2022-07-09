@@ -1,3 +1,19 @@
 .individual-movie-view  {
-  
+    display: flex;
+    background-size: cover;
+    border: 2px solid red;
+    height: 1000px;
+}
+
+.individual-movie-image {
+    display: flex;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    max-height: 500px;
 }
