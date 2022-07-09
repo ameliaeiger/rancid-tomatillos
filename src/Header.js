@@ -1,12 +1,14 @@
 import React from "react";
+import './Header.css';
 
 const Header = () => {
     console.log("Header component");
     return (
-        <h3>
-            Header Component
-        </h3>
-
+        <div className="header">
+            <h3>
+                Rancid Tomatillos
+            </h3>
+        </div>
     );
 };
 

@@ -1,12 +1,13 @@
 import React from "react";
+import './MovieThumbnail.css';
 
-const MovieThumbnail = props => {
-    console.log("MovieThumbnail component");
+const MovieThumbnail = ({ id, posterPath }) => {
+    
+
     return (
-        <h3>
-            MovieThumbnail Component
-        </h3>
-
+        <div id={id} className="movie-thumbnails">
+            <img src={posterPath} height="150px" width="150px"/>
+        </div>
     );
 };
 

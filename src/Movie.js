@@ -1,12 +1,11 @@
 import React from "react";
+import './Movie.css';
 
 const Movie = props => {
     console.log("Movie component");
     return (
-        <h3>
-            Movie Component
-        </h3>
-
+        <div className="individual-movie-view" >
+        </div>
     );
 };
 
