@@ -12,9 +12,19 @@ class App extends React.Component {
       data: movieData,
       currentView: "main",
       error: "",
-      selectedMovie: 0
-    }
-  }
+      selectedMovie: ""
+    };
+  };
+
+  handleChange(event) {
+    console.log("initial state", this.state)
+    console.log(event.target.parentElement.id)
+    this.setState({
+      currentView:"individual",
+      selectedMovie:event.target.parentElement.id,
+    });
+    console.log("altered state", this.state)
+  };
 
   render() {
     return (
@@ -23,6 +33,7 @@ class App extends React.Component {
         <Movie />
         <Display 
           data={this.state.data}
+          handleChange={this.handleChange}
         />
       </div>
     )
