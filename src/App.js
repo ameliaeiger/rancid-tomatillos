@@ -31,6 +31,7 @@ class App extends React.Component {
 
   render() {
     let userSelectedMovie = this.state.data.movies.find(movie => this.state.selectedMovie == movie.id)
+
     return (
       <div>
         <Header />
