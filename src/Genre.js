@@ -3,15 +3,16 @@ import React from "react";
 import MovieThumbnail from "./MovieThumbnail";
 import './Genre.css';
 
-const Genre = ({ data }) => {
+const Genre = ({ data, handleChange }) => {
     console.log("Genre component");
 
     const miniMovies = data.movies.map(movie => {
         return (
             <MovieThumbnail 
                 id= {movie.id}
-                posterPath = {movie.poster_path}
-                key = {movie.id}
+                posterPath= {movie.poster_path}
+                key= {movie.id}
+                handleChange= {handleChange}
             />                 
         )
     })
