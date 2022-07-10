@@ -49,9 +49,9 @@ class App extends React.Component {
       <div>
         <Header />
         {this.state.currentView === "individual" && <Movie 
-        userSelectedMovieInfo={userSelectedMovie}
-        selectedMovie={this.state.selectedMovie}
-        handleChange={this.handleChange}
+          userSelectedMovieInfo={userSelectedMovie}
+          selectedMovie={this.state.selectedMovie}
+          handleChange={this.handleChange}
         />}
         {this.state.currentView === "main" && <Display 
           data={this.state.data}
