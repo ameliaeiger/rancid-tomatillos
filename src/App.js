@@ -9,12 +9,25 @@ class App extends React.Component {
   constructor(){
     super()
     this.state={
-      data: movieData,
+      data: movieData.movies,
       currentView: "main",
       error: "",
       selectedMovie: 0
     };
   };
+
+  componentDidMount = () => {
+    return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+        .then ( response => response.json())
+        .then (movies => this.updateMovieData(movies.movies))
+        .catch(error => alert('Something went wrong.  Please try again later'));
+  }
+
+  updateMovieData = (movies) => {
+    this.setState({
+      data: movies
+    })
+  }
 
   handleChange = (event) => {
     let view = this.state.currentView
@@ -30,7 +43,7 @@ class App extends React.Component {
   };
 
   render() {
-    let userSelectedMovie = this.state.data.movies.find(movie => this.state.selectedMovie == movie.id)
+    let userSelectedMovie = this.state.data.find(movie => this.state.selectedMovie == movie.id)
 
     return (
       <div>
@@ -43,6 +56,7 @@ class App extends React.Component {
         {this.state.currentView === "main" && <Display 
           data={this.state.data}
           handleChange={this.handleChange}
+          updateMovieData = {this.updateMovieData}
         />}
       </div>
     )
