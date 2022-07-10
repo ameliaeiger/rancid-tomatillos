@@ -4,9 +4,8 @@ import MovieThumbnail from "./MovieThumbnail";
 import './Genre.css';
 
 const Genre = ({ data, handleChange }) => {
-    console.log("Genre component");
-
-    const miniMovies = data.movies.map(movie => {
+    
+    const miniMovies = data.map(movie => {
         return (
             <MovieThumbnail 
                 id= {movie.id}
