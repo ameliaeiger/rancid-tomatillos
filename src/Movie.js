@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import './Movie.css';
+import { Link } from 'react-router-dom';
 
 class Movie extends Component {
 
-    constructor ({ selectedMovie, handleChange, userSelectedMovieInfo }) {
+    constructor ({ selectedMovie, userSelectedMovieInfo }) {
         super();
         this.state = {
             movieInfo: {},
             selectedMovie: selectedMovie,
-            handleChange: handleChange,
             userSelectedMovieInfo: userSelectedMovieInfo
         }
     }
@@ -16,15 +16,15 @@ class Movie extends Component {
     componentDidMount = () => {
         return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie)
             .then(response => response.json())
-            .then(movieInfo => this.updateMovieInfo(movieInfo))
+            .then(movieInfo => this.setState({movieInfo: movieInfo.movie}))
             .catch(error => alert('Something went wrong.  Please try again later'))
     }
     
-    updateMovieInfo = (movie) => {
-        this.setState({
-          movieInfo: movie.movie
-        })
-      }
+    // updateMovieInfo = (movie) => {
+    //     this.setState({
+    //       movieInfo: movie.movie
+    //     })
+    //   }
     
     // console.log(userSelectedMovieInfo.backdrop_path)
     render() {
@@ -65,10 +65,11 @@ class Movie extends Component {
                     Release Date: {this.state.movieInfo.release_date}  
                     </p>
 
-
-
-
-                    <button onClick={event => this.state.handleChange(event)}>Go Back!</button>
+                    <Link to={'/dashboard'}>
+                        <button>
+                            Go Back!
+                        </button>
+                    </Link>
                 </div>           
             </div>
         );

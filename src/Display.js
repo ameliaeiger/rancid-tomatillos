@@ -10,8 +10,8 @@ const Display = ({ data, handleChange }) => {
     return (
         <div className="display-boxes">
             <Genre 
-            data = {data}
-            handleChange={handleChange}
+                data = {data}
+                handleChange = {handleChange}
             />
         </div>
 

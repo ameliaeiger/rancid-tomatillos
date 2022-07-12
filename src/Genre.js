@@ -1,4 +1,3 @@
-import { getByTitle } from "@testing-library/react";
 import React from "react";
 import MovieThumbnail from "./MovieThumbnail";
 import './Genre.css';
@@ -11,7 +10,7 @@ const Genre = ({ data, handleChange }) => {
                 id= {movie.id}
                 posterPath= {movie.poster_path}
                 key= {movie.id}
-                handleChange= {handleChange}
+                handleChange = {handleChange}
             />                 
         )
     })
