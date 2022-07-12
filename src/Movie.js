@@ -5,12 +5,11 @@ import { getDetails } from './apiCalls';
 
 class Movie extends Component {
 
-    constructor ({ selectedMovie, userSelectedMovieInfo }) {
+    constructor ({ selectedMovie, handleChange }) {
         super();
         this.state = {
             movieInfo: {},
             selectedMovie: selectedMovie,
-            userSelectedMovieInfo: userSelectedMovieInfo
         }
     }
 
@@ -21,7 +20,6 @@ class Movie extends Component {
     
     render() {
         let url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie; 
-        console.log(url);
 
         return (
             <div className="individual-movie-view" 

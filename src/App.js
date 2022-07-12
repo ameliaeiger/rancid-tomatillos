@@ -26,47 +26,13 @@ class App extends React.Component {
     .then(movies => this.setState({data: movies.movies}))
   }
 
-  // updateMovieData = (movies) => {
-  //   this.setState({
-  //     data: movies
-  //   })
-  // }
-
   handleChange = (event) => {
-    // let view = this.state.currentView
-    // if (view === "main") {
-    //   view = "individual"
-    // } else {
-    //   view = "main"
-    // };
     this.setState({
-      // currentView:view,
       selectedMovie:event.target.parentElement.id,
     });
   };
 
-  // render() {
-  //   let userSelectedMovie = this.state.data.find(movie => this.state.selectedMovie == movie.id)
-
-  //   return (
-  //     <div>
-  //       <Header />
-  //       {this.state.currentView === "individual" && <Movie 
-  //         userSelectedMovieInfo={userSelectedMovie}
-  //         selectedMovie={this.state.selectedMovie}
-  //         handleChange={this.handleChange}
-  //       />}
-  //       {this.state.currentView === "main" && <Display 
-  //         data={this.state.data}
-  //         handleChange={this.handleChange}
-  //         updateMovieData = {this.updateMovieData}
-  //       />}
-  //     </div>
-  //   )
-  // };
-
   render() {
-    console.log(this.state.data);
     return (
       <>
         <Header />
