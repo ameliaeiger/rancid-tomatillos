@@ -1,13 +1,16 @@
 import React from "react";
 import './MovieThumbnail.css';
+import { Link } from 'react-router-dom';
 
 const MovieThumbnail = ({ id, posterPath, handleChange }) => {
     
 
     return (
-        <div id={id} className="movie-thumbnails" onClick={event => handleChange(event)}>
-            <img src={posterPath} height="150px" width="150px"/>
-        </div>
+        <Link to={`/${id}`}>
+            <section id={id} className="movie-thumbnails" onClick={event => handleChange(event)}>
+                <img src={posterPath} height="300px" />
+            </section>
+        </Link>
     );
 };
 

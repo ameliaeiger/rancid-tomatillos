@@ -1,35 +1,25 @@
 import React, { Component } from "react";
 import './Movie.css';
+import { Link } from 'react-router-dom';
+import { getDetails } from './apiCalls';
 
 class Movie extends Component {
 
-    constructor ({ selectedMovie, handleChange, userSelectedMovieInfo }) {
+    constructor ({ selectedMovie, handleChange }) {
         super();
         this.state = {
             movieInfo: {},
             selectedMovie: selectedMovie,
-            handleChange: handleChange,
-            userSelectedMovieInfo: userSelectedMovieInfo
         }
     }
 
     componentDidMount = () => {
-        return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie)
-            .then(response => response.json())
-            .then(movieInfo => this.updateMovieInfo(movieInfo))
-            .catch(error => alert('Something went wrong.  Please try again later'))
+        getDetails(this.state.selectedMovie)
+            .then(movieInfo => this.setState({movieInfo: movieInfo.movie}));
     }
     
-    updateMovieInfo = (movie) => {
-        this.setState({
-          movieInfo: movie.movie
-        })
-      }
-    
-    // console.log(userSelectedMovieInfo.backdrop_path)
     render() {
         let url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie; 
-        console.log(url);
 
         return (
             <div className="individual-movie-view" 
@@ -65,10 +55,11 @@ class Movie extends Component {
                     Release Date: {this.state.movieInfo.release_date}  
                     </p>
 
-
-
-
-                    <button onClick={event => this.state.handleChange(event)}>Go Back!</button>
+                    <Link to={'/dashboard'}>
+                        <button>
+                            Go Back!
+                        </button>
+                    </Link>
                 </div>           
             </div>
         );
