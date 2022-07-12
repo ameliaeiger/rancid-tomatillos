@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './Movie.css';
 import { Link } from 'react-router-dom';
+import { getDetails } from './apiCalls';
 
 class Movie extends Component {
 
@@ -14,19 +15,10 @@ class Movie extends Component {
     }
 
     componentDidMount = () => {
-        return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie)
-            .then(response => response.json())
-            .then(movieInfo => this.setState({movieInfo: movieInfo.movie}))
-            .catch(error => alert('Something went wrong.  Please try again later'))
+        getDetails(this.state.selectedMovie)
+            .then(movieInfo => this.setState({movieInfo: movieInfo.movie}));
     }
     
-    // updateMovieInfo = (movie) => {
-    //     this.setState({
-    //       movieInfo: movie.movie
-    //     })
-    //   }
-    
-    // console.log(userSelectedMovieInfo.backdrop_path)
     render() {
         let url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie; 
         console.log(url);

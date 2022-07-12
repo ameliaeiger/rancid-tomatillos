@@ -8,6 +8,7 @@ import {
   Redirect, 
   Route
 } from 'react-router-dom';
+import { getMovies } from './apiCalls';
 
 class App extends React.Component {
   constructor(){
@@ -21,10 +22,8 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(response => response.json())
-      .then(movies => this.setState({data: movies.movies}))
-      .catch(error => alert('Something went wrong.  Please try again later'));
+    getMovies()
+    .then(movies => this.setState({data: movies.movies}))
   }
 
   // updateMovieData = (movies) => {
