@@ -22,45 +22,44 @@ class Movie extends Component {
         let url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie; 
 
         return (
+            <div className="page-wrapper" style={{backgroundImage: `url(${this.state.movieInfo.backdrop_path})`}}>
             <div className="individual-movie-view" 
-            style={{
-                backgroundImage: `url(${this.state.movieInfo.backdrop_path})`,
-            }}>
-                <div className="individual-movie-image">
-                    <img src={this.state.movieInfo.poster_path}/>
+            // style={{
+            //     backgroundImage: `url(${this.state.movieInfo.backdrop_path})`,
+            // }}
+            >
+                <div className="movie-details">
+                    {/* <div className="individual-movie-image"> */}
+                        <img className="individual-movie-image" src={this.state.movieInfo.poster_path}/>
+                    {/* </div> */}
+                    <section className="movie-info">
+                        <p style={{fontSize: "25px"}}>
+                        {this.state.movieInfo.title}  
+                        </p>
+                        <p>
+                        Rating: {this.state.movieInfo.average_rating}  
+                        </p>
+                        <p>
+                        Overview: {this.state.movieInfo.overview}  
+                        </p>
+                        <p>
+                        Runtime: {this.state.movieInfo.runtime} min.  
+                        </p>
+                        <p>
+                        Release Date: {this.state.movieInfo.release_date}  
+                        </p>
+                        {/* <p>
+                        Genre: {this.state.movieInfo.genres[0]}  
+                        </p> */}
+                    </section>
                 </div>
-                <div className="movie-info">
-                    <p>
-                    {this.state.movieInfo.title}  
-                    </p>
-                    <p>
-                    Rating: {this.state.movieInfo.average_rating}  
-                    </p>
-                    <p>
-                    Release Date: {this.state.movieInfo.release_date}  
-                    </p>
-                    <p>
-                    Overview: {this.state.movieInfo.overview}  
-                    </p>
-                    <p>
-                    Budget: {this.state.movieInfo.budget}  
-                    </p>
-                    <p>
-                    Revenue: {this.state.movieInfo.revenue}  
-                    </p>
-                    <p>
-                    Release Date: {this.state.movieInfo.release_date}  
-                    </p>
-                    <p>
-                    Release Date: {this.state.movieInfo.release_date}  
-                    </p>
-
-                    <Link to={'/dashboard'}>
+                <Link to={'/dashboard'}>
                         <button>
                             Go Back!
                         </button>
-                    </Link>
-                </div>           
+                </Link>    
+                {/* <img src={`${this.state.movieInfo.backdrop_path}`} className="backdrop-image"/>        */}
+            </div>
             </div>
         );
     }

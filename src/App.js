@@ -59,6 +59,15 @@ class App extends React.Component {
           }}>
           </Redirect>
         </Route>
+        <Route exact path="*">
+          <Redirect to="/dashboard" render={() => {
+            <Display
+              data={this.state.data}
+              handleChange={this.handleChange}
+            />
+          }}>
+          </Redirect>
+        </Route>
       </>
     )
   }
