@@ -1,11 +1,19 @@
 .page-wrapper {
     display: flex;
+    justify-content: stretch;
+    align-items: center;
     background-size: cover;
-    height: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    left: 0px;
+    width: auto;
+    padding: 150px;
+    margin: 0px;
 }
 
 .individual-movie-view  {
     display: flex; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 100px 100px;
@@ -19,18 +27,17 @@
 
 .movie-details {
     display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    padding: 10px;
+    justify-content: space-between;
+    padding: 40px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 25px;
-    max-width: 70%;
 }
 
 .movie-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 110px 50px 300px;
+    grid-template-columns: 200px 200px 200px;
+    padding: 20px;
 }
 
 .backdrop-image {
@@ -43,4 +50,65 @@
     width: auto;
     border: 10px solid black;
     border-radius: 25px;
+}
+
+.go-back-button {
+    font-family: "typewriter";
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 50px;
+    border: none;
+    border-radius: 25px;
+}
+
+.heading {
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+}
+
+.info {
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Grid details */
+
+.movie-info > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.movie-title {
+    text-align: center;
+    grid-row: 1;
+    grid-column: 1 / span 3;
+    margin: 0px;
+}
+
+.movie-rating {
+    grid-row: 2;
+    grid-column: 1;
+    margin: 0px;
+    padding: 0px;
+}
+
+.movie-runtime {
+    grid-row: 2;
+    grid-column: 2;
+    margin: 0px;
+}
+
+.movie-overview {
+    grid-row: 3;
+    grid-column: 1 / span 3;
+    margin: 0px;
+}
+
+.movie-release-date {
+    grid-row: 2;
+    grid-column: 3;
 }
