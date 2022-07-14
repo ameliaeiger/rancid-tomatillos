@@ -23,34 +23,28 @@ class Movie extends Component {
 
         return (
             <div className="page-wrapper" style={{backgroundImage: `url(${this.state.movieInfo.backdrop_path})`}}>
-            <div className="individual-movie-view" 
-            // style={{
-            //     backgroundImage: `url(${this.state.movieInfo.backdrop_path})`,
-            // }}
-            >
+            <div className="individual-movie-view" >
                 <div className="movie-details">
-                    {/* <div className="individual-movie-image"> */}
                         <img className="individual-movie-image" src={this.state.movieInfo.poster_path}/>
-                    {/* </div> */}
                     <section className="movie-info">
                         <p className="movie-title" style={{fontSize: "40px"}}>
                         {this.state.movieInfo.title}  
                         </p>
-                        <p className="movie-rating">
-                        Rating: {this.state.movieInfo.average_rating}  
-                        </p>
-                        <p>
-                        Overview: {this.state.movieInfo.overview}  
-                        </p>
-                        <p>
-                        Runtime: {this.state.movieInfo.runtime} min.  
-                        </p>
-                        <p>
-                        Release Date: {this.state.movieInfo.release_date}  
-                        </p>
-                        {/* <p>
-                        Genre: {this.state.movieInfo.genres[0]}  
-                        </p> */}
+                        <div className="movie-rating">
+                            <p className="heading">Rating:</p>
+                            <p className="info">{this.state.movieInfo.average_rating}</p>  
+                        </div>
+                        <div className="movie-overview">
+                            {this.state.movieInfo.overview}  
+                        </div>
+                        <div className="movie-runtime">
+                            <p className="heading">Runtime:</p>
+                            <p className="info">{this.state.movieInfo.runtime} min.</p> 
+                        </div>
+                        <div className="movie-release-date">
+                            <p className="heading">Release Date:</p>
+                            <p className="info">{this.state.movieInfo.release_date}</p>
+                        </div>
                     </section>
                 </div>
                 <Link to={'/dashboard'}>
@@ -58,7 +52,6 @@ class Movie extends Component {
                             Go Back!
                         </button>
                 </Link>    
-                {/* <img src={`${this.state.movieInfo.backdrop_path}`} className="backdrop-image"/>        */}
             </div>
             </div>
         );
