@@ -33,10 +33,10 @@ class Movie extends Component {
                         <img className="individual-movie-image" src={this.state.movieInfo.poster_path}/>
                     {/* </div> */}
                     <section className="movie-info">
-                        <p style={{fontSize: "25px"}}>
+                        <p className="movie-title" style={{fontSize: "40px"}}>
                         {this.state.movieInfo.title}  
                         </p>
-                        <p>
+                        <p className="movie-rating">
                         Rating: {this.state.movieInfo.average_rating}  
                         </p>
                         <p>
@@ -54,7 +54,7 @@ class Movie extends Component {
                     </section>
                 </div>
                 <Link to={'/dashboard'}>
-                        <button>
+                        <button className="go-back-button">
                             Go Back!
                         </button>
                 </Link>    

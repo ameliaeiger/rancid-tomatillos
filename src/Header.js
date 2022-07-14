@@ -5,7 +5,7 @@ const Header = () => {
     console.log("Header component");
     return (
         <div className="header">
-            <h3>
+            <h3 style={{fontSize:"60px"}}>
                 Rancid Tomatillos
             </h3>
         </div>

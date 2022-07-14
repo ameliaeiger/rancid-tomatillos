@@ -16,7 +16,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 const Display = ({ data, handleChange }) => {
 
     return (
-        // <section className="display-boxes">
+        <section className="display-boxes">
         <>
             <Swiper 
             cssMode={true}
@@ -38,11 +38,11 @@ const Display = ({ data, handleChange }) => {
                 <SwiperSlide>Slide 9</SwiperSlide>
             </Swiper>
         </>
-        //     <Genre 
-        //         data = {data}
-        //         handleChange = {handleChange}
-        //     />
-        // </section>
+            <Genre 
+                data = {data}
+                handleChange = {handleChange}
+            />
+        </section>
     );
 };
 
