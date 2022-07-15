@@ -2,7 +2,7 @@ describe('individual movie view', () => {
 
   beforeEach(() => {
     //How to get straight to movie view? Tried entering /:id
-    cy.visit("http://localhost:3000")
+    cy.visit("http://localhost:3000/694919")
     cy.get("article")
     .should("have.length", 40)
     .first().click()
