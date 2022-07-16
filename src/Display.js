@@ -9,12 +9,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 // Swiper required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+import { getTrailer } from './apiCalls';
+import ReactPlayer from "react-player";
 
 
 
 
 const Display = ({ data, handleChange }) => {
-
+    getTrailer(694919).then(data => {
+        console.log(data.videos[0].key)
+    })
     return (
         <section className="display-boxes">
         <>
@@ -27,7 +31,7 @@ const Display = ({ data, handleChange }) => {
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             className="mySwiper"
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
+                <SwiperSlide><ReactPlayer url="https://www.youtube.com/watch?=" + {}></SwiperSlide>
                 <SwiperSlide>Slide 2</SwiperSlide>
                 <SwiperSlide>Slide 3</SwiperSlide>
                 <SwiperSlide>Slide 4</SwiperSlide>

@@ -1,3 +1,8 @@
 .movie-thumbnails {
-  background-color: #F4F3D1;
+  /* background-color: #F4F3D1; */
+  
+}
+
+.movie-poster {
+  width: 650px;
 }

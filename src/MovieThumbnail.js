@@ -8,7 +8,7 @@ const MovieThumbnail = ({ id, posterPath, handleChange }) => {
     return (
         <Link to={`/${id}`}>
             <article id={id} className="movie-thumbnails" onClick={event => handleChange(event)}>
-                <img src={posterPath} height="300px" />
+                <img src={posterPath} className="movie-poster" />
             </article>
         </Link>
     );

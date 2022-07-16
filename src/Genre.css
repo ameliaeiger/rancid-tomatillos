@@ -1,7 +1,7 @@
 .movies-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* grid-gap: 10px; */
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px 50px;
   justify-content: space-between;
   justify-items: center;
 }
