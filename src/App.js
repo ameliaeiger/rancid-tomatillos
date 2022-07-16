@@ -6,7 +6,8 @@ import movieData from "./movieData";
 import React from 'react';
 import { 
   Redirect, 
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 import { getMovies } from './apiCalls';
 
@@ -36,38 +37,40 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <Route exact path="/dashboard" render={() => {
-          return <Display 
-            data={this.state.data}
-            handleChange={this.handleChange}
-          />
-        }}>
-        </Route>
-        <Route path={`/${this.state.selectedMovie}`} render={() => {
-          return <Movie 
-            selectedMovie={this.state.selectedMovie}
-            handleChange={this.handleChange}
-          />
-        }}>
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/dashboard" render={() => {
-            <Display 
-              data={this.state.data}
-              handleChange={this.handleChange}
-            />
-          }}>
-          </Redirect>
-        </Route>
-        <Route exact path="*">
-          <Redirect to="/dashboard" render={() => {
-            <Display
-              data={this.state.data}
-              handleChange={this.handleChange}
-            />
-          }}>
-          </Redirect>
-        </Route>
+          <Switch>
+            <Route exact path="/dashboard" render={() => {
+              return <Display 
+                data={this.state.data}
+                handleChange={this.handleChange}
+              />
+            }}>
+            </Route>
+            <Route path={`/${this.state.selectedMovie}`} render={() => {
+              return <Movie 
+                selectedMovie={this.state.selectedMovie}
+                handleChange={this.handleChange}
+              />
+            }}>
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/dashboard" render={() => {
+                <Display 
+                  data={this.state.data}
+                  handleChange={this.handleChange}
+                />
+              }}>
+              </Redirect>
+            </Route>
+            <Route exact path="*">
+              <Redirect to="/dashboard" render={() => {
+                <Display
+                  data={this.state.data}
+                  handleChange={this.handleChange}
+                />
+              }}>
+            </Redirect>
+          </Route>
+        </Switch>
       </>
     )
   }
