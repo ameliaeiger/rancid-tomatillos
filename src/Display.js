@@ -16,9 +16,11 @@ import ReactPlayer from "react-player";
 
 
 const Display = ({ data, handleChange }) => {
-    getTrailer(694919).then(data => {
+    const featuredMovie = getTrailer(694919).then(data => {
         console.log(data.videos[0].key)
+        return data.videos[0].key
     })
+    let faveMovies = [694919, 501979, 579583]
     return (
         <section className="display-boxes">
         <>
@@ -31,17 +33,31 @@ const Display = ({ data, handleChange }) => {
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             className="mySwiper"
             >
-                <SwiperSlide><ReactPlayer url="https://www.youtube.com/watch?=" + {}></SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                <SwiperSlide>
+                    <ReactPlayer 
+                        url={`https://www.youtube.com/watch?v=${featuredMovie}`}/>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <article className="feature-slide">
+                        <div className="feature-wrapper"></div>
+                        <div className="feature-wrapper"></div>
+                    </article>
+                </SwiperSlide>
+                <SwiperSlide>
+                <article className="feature-slide">
+                        <div className="feature-wrapper"></div>
+                        <div className="feature-wrapper"></div>
+                    </article>
+                </SwiperSlide>
+                <SwiperSlide>
+                <article className="feature-slide">
+                        <div className="feature-wrapper"></div>
+                        <div className="feature-wrapper"></div>
+                    </article>
+                </SwiperSlide>
             </Swiper>
         </>
+            <p style={{color:"white"}}>Browse the Collection</p>
             <Genre 
                 data = {data}
                 handleChange = {handleChange}

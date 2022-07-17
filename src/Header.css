@@ -1,6 +1,31 @@
 .header {
   display: flex;
   justify-content: center;
+  padding: 10px;
   width: 100%;
-  border: 2px solid red;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header:hover {
+  cursor: pointer;
+}
+
+.appear {
+  animation: appear;
+  animation-timing-function: ease-in;
+  animation-duration: 1.5s;
+}
+
+/* .hidden {
+  visibility: none !important;
+} */
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
