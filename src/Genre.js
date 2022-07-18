@@ -8,9 +8,9 @@ const Genre = ({ data, handleChange }) => {
         return (
             <MovieThumbnail 
                 id= {movie.id}
+                key={movie.id}
                 posterPath= {movie.poster_path}
-                key= {movie.id}
-                handleChange = {handleChange}
+                handleChange= {handleChange}
             />                 
         );
     });

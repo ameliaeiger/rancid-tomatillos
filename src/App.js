@@ -3,6 +3,7 @@ import Movie from "./Movie";
 import Display from "./Display";
 import Header from "./Header";
 import movieData from "./movieData";
+import { getTrailer } from './apiCalls';
 import React from 'react';
 import { 
   Redirect, 
@@ -18,28 +19,30 @@ class App extends React.Component {
       data: movieData.movies,
       currentView: "main",
       error: "",
-      selectedMovie: 694919,
-      featuredMovies: [694919, 501979, 579583],
-      featuredMovieKeys: []
+      selectedMovie: 694919
     };
   };
 
   componentDidMount = () => {
-    featuredMovies(id) => {
-      await getTrailer(id).then(data => {
-          let key = data.videos[0].key
-      });
-  };
-  
     getMovies()
-    .then(movies => this.setState({data: movies.movies}));
-  };
+    .then(movies => this.setState({data: movies.movies}))
+  }
 
   handleChange = (event) => {
     this.setState({
-      selectedMovie:event.target.parentElement.id,
+      selectedMovie:event.target.id,
     });
   };
+
+  // showTrailer = (id) => {
+  //   async (id) => {
+  //     await getTrailer(id).then(data => {
+  //         let key = data.videos[0].key
+          
+  //     })
+  //   };
+  // };
+
 
   render() {
     return (
@@ -50,7 +53,6 @@ class App extends React.Component {
               return <Display 
                 data={this.state.data}
                 handleChange={this.handleChange}
-                // showDetails={this.showDetails}
               />
             }}>
             </Route>

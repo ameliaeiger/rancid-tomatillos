@@ -17,26 +17,8 @@ import ReactPlayer from "react-player";
 
 const Display = ({ data, handleChange }) => {
     let faveMovies = [694919, 501979, 579583];
-
     let keys = [];
 
-
-    const featuredMovies = async (id) => {
-        await getTrailer(id).then(data => {
-            let key = data.videos[0].key
-            
-        })
-    };
-
-    
-    
-    featuredMovies(faveMovies[0])
-    console.log('line 38', test)
-
-    // const featuredMovies = getTrailer(694919).then(data => {
-    //     console.log(data.videos[0].key)
-    //     return data.videos[0].key
-    // })
     return (
         <section className="display-boxes">
         <>
@@ -51,7 +33,7 @@ const Display = ({ data, handleChange }) => {
             >
                 <SwiperSlide>
                     <ReactPlayer 
-                        url={`https://www.youtube.com/watch?v=${featuredMovies[0]}`}
+                        // url={`https://www.youtube.com/watch?v=${featuredMovies[0]}`}
                         />
                 </SwiperSlide>
                 <SwiperSlide>

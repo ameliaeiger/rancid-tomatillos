@@ -3,15 +3,14 @@ import './MovieThumbnail.css';
 import { getDetails} from "./apiCalls.js"
 import { Link } from 'react-router-dom';
 
-class MovieThumbnail extends React.Component{
-    constructor(props) {
-        super(props)
-        this.state= {
-            avgRating: "",
-            isHovering: false
-        };
+class MovieThumbnail extends React.Component {
+        constructor(props) {
+        super()
+        this.state={
+            isHovering: false,
+        }
     };
-    handleMouseEvent(e) {
+    handleMouseEvent = (e) => {
         let movieRating
         getDetails(e.target.id).then(data => {
             movieRating = data.movie.average_rating.toFixed(2)
@@ -23,12 +22,16 @@ class MovieThumbnail extends React.Component{
             });
         });
     };
-    render() {
+    render(){
         return (
             <Link to={`/${this.props.id}`}>
-                <article className="movie-thumbnails" onMouseOut={event => this.handleMouseEvent(event)} onMouseOver={event => this.handleMouseEvent(event)}  onClick={event => this.props.handleChange(event)}>
+                <article 
+                className="movie-thumbnails" 
+                onMouseOut={event => this.handleMouseEvent(event)} 
+                onMouseOver={event => this.handleMouseEvent(event)}  
+                onClick={event => this.props.handleChange(event)}>
                     <div className="thumbnail-wrapper">
-                        {this.state.isHovering && <div className='movie-rating'>{this.state.avgRating}</div>}
+                        {this.state.isHovering && <div className='movie-rating'>{this.props.avgRating}</div>}
                         <img src={this.props.posterPath} id={this.props.id} className="movie-poster" />
                     </div>
                 </article>

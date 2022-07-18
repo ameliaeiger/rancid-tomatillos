@@ -4,23 +4,19 @@ import { Link } from 'react-router-dom';
 import { getDetails } from './apiCalls';
 
 class Movie extends Component {
-
     constructor ({ selectedMovie, handleChange }) {
         super();
         this.state = {
             movieInfo: {},
-            selectedMovie: selectedMovie,
+            selectedMovie: {selectedMovie},
         }
-    }
-
+    };
     componentDidMount = () => {
-        getDetails(this.state.selectedMovie)
+        getDetails(this.state.selectedMovie.selectedMovie)
             .then(movieInfo => this.setState({movieInfo: movieInfo.movie}));
-    }
-    
+    };
     render() {
         let url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/' + this.state.selectedMovie; 
-
         return (
             <div className="page-wrapper" style={{backgroundImage: `url(${this.state.movieInfo.backdrop_path})`}}>
                 <section className="individual-movie-view" >
@@ -55,7 +51,7 @@ class Movie extends Component {
                 </section>
             </div>
         );
-    }
+    };
 };
 
 export default Movie;
