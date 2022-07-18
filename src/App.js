@@ -11,6 +11,7 @@ import {
   Switch
 } from 'react-router-dom';
 import { getMovies } from './apiCalls';
+import Error from './Error';
 
 class App extends React.Component {
   constructor(){
@@ -63,23 +64,9 @@ class App extends React.Component {
               />
             }}>
             </Route>
-            <Route exact path="/">
-              <Redirect to="/dashboard" render={() => {
-                <Display 
-                  data={this.state.data}
-                  handleChange={this.handleChange}
-                />
+            <Route path="*" render={() => {
+                return <Error />
               }}>
-              </Redirect>
-            </Route>
-            <Route exact path="*">
-              <Redirect to="/dashboard" render={() => {
-                <Display
-                  data={this.state.data}
-                  handleChange={this.handleChange}
-                />
-              }}>
-            </Redirect>
           </Route>
         </Switch>
       </>
