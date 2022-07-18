@@ -4,7 +4,7 @@ import './Error.css';
 
 const Error = () => {
   return (
-    <article>
+    <section>
       <div className="error-wrapper">
         <h2>404 Error: Page Not Found</h2>
         <Link to={'/dashboard'}>
@@ -13,7 +13,7 @@ const Error = () => {
           </button>
         </Link>    
       </div>
-    </article>
+    </section>
   )
 }
 

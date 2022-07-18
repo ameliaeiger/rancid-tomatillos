@@ -37,22 +37,22 @@ const Display = ({ data, handleChange }) => {
                         />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <article className="feature-slide">
+                    <section className="feature-slide">
                         <div className="feature-wrapper"></div>
                         <div className="feature-wrapper"></div>
-                    </article>
+                    </section>
                 </SwiperSlide>
                 <SwiperSlide>
-                <article className="feature-slide">
+                    <section className="feature-slide">
                         <div className="feature-wrapper"></div>
                         <div className="feature-wrapper"></div>
-                    </article>
+                    </section>
                 </SwiperSlide>
                 <SwiperSlide>
-                <article className="feature-slide">
+                <section className="feature-slide">
                         <div className="feature-wrapper"></div>
                         <div className="feature-wrapper"></div>
-                    </article>
+                    </section>
                 </SwiperSlide>
             </Swiper>
         </>
