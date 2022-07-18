@@ -18,11 +18,19 @@ class App extends React.Component {
       data: movieData.movies,
       currentView: "main",
       error: "",
-      selectedMovie: 694919
+      selectedMovie: 694919,
+      featuredMovies: [694919, 501979, 579583],
+      featuredMovieKeys: []
     };
   };
 
   componentDidMount = () => {
+    featuredMovies(id) => {
+      await getTrailer(id).then(data => {
+          let key = data.videos[0].key
+      });
+  };
+  
     getMovies()
     .then(movies => this.setState({data: movies.movies}));
   };
@@ -32,12 +40,6 @@ class App extends React.Component {
       selectedMovie:event.target.parentElement.id,
     });
   };
-
-  // showDetails = (event) => {
-  //   this.setState({
-  //     selectedMovie:event.target.parentElement.id,
-  //   });
-  // };
 
   render() {
     return (

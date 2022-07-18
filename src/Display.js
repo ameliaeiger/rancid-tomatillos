@@ -15,12 +15,28 @@ import ReactPlayer from "react-player";
 
 
 
-const Display = ({ data, handleChange, showDetails }) => {
-    const featuredMovie = getTrailer(694919).then(data => {
-        console.log(data.videos[0].key)
-        return data.videos[0].key
-    })
-    let faveMovies = [694919, 501979, 579583]
+const Display = ({ data, handleChange }) => {
+    let faveMovies = [694919, 501979, 579583];
+
+    let keys = [];
+
+
+    const featuredMovies = async (id) => {
+        await getTrailer(id).then(data => {
+            let key = data.videos[0].key
+            
+        })
+    };
+
+    
+    
+    featuredMovies(faveMovies[0])
+    console.log('line 38', test)
+
+    // const featuredMovies = getTrailer(694919).then(data => {
+    //     console.log(data.videos[0].key)
+    //     return data.videos[0].key
+    // })
     return (
         <section className="display-boxes">
         <>
@@ -35,7 +51,8 @@ const Display = ({ data, handleChange, showDetails }) => {
             >
                 <SwiperSlide>
                     <ReactPlayer 
-                        url={`https://www.youtube.com/watch?v=${featuredMovie}`}/>
+                        url={`https://www.youtube.com/watch?v=${featuredMovies[0]}`}
+                        />
                 </SwiperSlide>
                 <SwiperSlide>
                     <article className="feature-slide">
@@ -57,7 +74,7 @@ const Display = ({ data, handleChange, showDetails }) => {
                 </SwiperSlide>
             </Swiper>
         </>
-            <p style={{color:"white"}}>Browse the Collection</p>
+            <p style={{color:"white", textAlign: "center", fontSize: "25px"}}>Browse the Collection</p>
             <Genre 
                 data = {data}
                 handleChange = {handleChange}

@@ -14,7 +14,7 @@
 .appear {
   animation: appear;
   animation-timing-function: ease-in-out;
-  animation-duration: 4s;
+  animation-duration: 3.5s;
 }
 
 .hidden {
