@@ -12,8 +12,8 @@ const Genre = ({ data, handleChange }) => {
                 key= {movie.id}
                 handleChange = {handleChange}
             />                 
-        )
-    })
+        );
+    });
 
     return (
         <div className="movies-container" >

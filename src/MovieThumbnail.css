@@ -1,5 +1,6 @@
 .movie-thumbnails {
   /* background-color: #F4F3D1; */
+  overflow: none;
   
 }
 
@@ -12,4 +13,19 @@
   cursor: pointer;
   transition-duration: 0.2s;
   box-shadow: 0px 0px 50px white;
+}
+
+.thumbnail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-rating {
+  position: relative;
+  left: 50%;
+  margin: 0px;
+  padding: 0px;
+  float: right;
+  height: auto;
 }

@@ -15,7 +15,7 @@ import ReactPlayer from "react-player";
 
 
 
-const Display = ({ data, handleChange }) => {
+const Display = ({ data, handleChange, showDetails }) => {
     const featuredMovie = getTrailer(694919).then(data => {
         console.log(data.videos[0].key)
         return data.videos[0].key
@@ -61,6 +61,7 @@ const Display = ({ data, handleChange }) => {
             <Genre 
                 data = {data}
                 handleChange = {handleChange}
+                // showDetails = {showDetails}
             />
         </section>
     );

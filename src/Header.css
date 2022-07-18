@@ -14,18 +14,87 @@
 .appear {
   animation: appear;
   animation-timing-function: ease-in;
-  animation-duration: 1.5s;
+  animation-duration: 4s;
 }
 
-/* .hidden {
-  visibility: none !important;
-} */
+.hidden {
+  display: none !important;
+}
 
 @keyframes appear {
   0% {
     opacity: 0;
   }
-  100% {
+  20% {
+    opacity: 1;
+  }
+  21% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  40% {
+    opacity: .8;
+  }
+  41% {
+    opacity: 0;
+  }
+  45% {
+    opacity: .8;
+  }
+  50% {
+    opacity: 0;
+  }
+  51% {
+    opacity: .8;
+  }
+  81% {
+    opacity: 0;
+  }
+  82% {
+    opacity: .8;
+  }
+  83% {
+    opacity: 0;
+  }
+  84% {
+    opacity: .8;
+  }
+  85% {
+    opacity: 0;
+  }
+  86% {
+    opacity: .8;
+  }
+  87% {
+    opacity: 0;
+  }
+  88% {
+    opacity: .8;
+  }
+  89% {
+    opacity: 0;
+  }
+  90% {
+    opacity: .8;
+  }
+  91% {
+    opacity: 0;
+  }
+  95% {
+    opacity: .8;
+  }
+  96% {
+    opacity: 0;
+  }
+  97% {
+    opacity: .9;
+  }
+  98% {
+    opacity: 0;
+  }
+  96% {
     opacity: 1;
   }
 }

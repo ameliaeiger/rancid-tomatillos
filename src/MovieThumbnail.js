@@ -1,18 +1,40 @@
 import React from "react";
 import './MovieThumbnail.css';
+import { getDetails} from "./apiCalls.js"
 import { Link } from 'react-router-dom';
 
-const MovieThumbnail = ({ id, posterPath, handleChange, showDetails }) => {
-// When a movie is hovered over, it's rating will appear as overlayed text.
-    
-
-    return (
-        <Link to={`/${id}`}>
-            <article id={id} className="movie-thumbnails" onMouseOver={event => showDetails(event)}  onClick={event => handleChange(event)}>
-                <img src={posterPath} className="movie-poster" />
-            </article>
-        </Link>
-    );
+class MovieThumbnail extends React.Component{
+    constructor(props) {
+        super(props)
+        this.state= {
+            avgRating: "",
+            isHovering: false
+        };
+    };
+    handleMouseEvent(e) {
+        let movieRating
+        getDetails(e.target.id).then(data => {
+            movieRating = data.movie.average_rating.toFixed(2)
+            this.setState(prevState => {
+                return {
+                    avgRating: movieRating,
+                    isHovering: !prevState.isHovering
+                };
+            });
+        });
+    };
+    render() {
+        return (
+            <Link to={`/${this.props.id}`}>
+                <article className="movie-thumbnails" onMouseOut={event => this.handleMouseEvent(event)} onMouseOver={event => this.handleMouseEvent(event)}  onClick={event => this.props.handleChange(event)}>
+                    <div className="thumbnail-wrapper">
+                        {this.state.isHovering && <div className='movie-rating'>{this.state.avgRating}</div>}
+                        <img src={this.props.posterPath} id={this.props.id} className="movie-poster" />
+                    </div>
+                </article>
+            </Link>
+        );
+    };
 };
 
 

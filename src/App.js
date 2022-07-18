@@ -25,7 +25,7 @@ class App extends React.Component {
   componentDidMount = () => {
     getMovies()
     .then(movies => this.setState({data: movies.movies}));
-  }
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -33,32 +33,22 @@ class App extends React.Component {
     });
   };
 
-  showDetails = (event) => {
-    console.log("event triggered", this.state)
-    this.setState({
-      selectedMovie:event.target.parentElement.id,
-    });
-  };
-
-  animate = (e) => {
-    console.log("animate")
-    e.target.classList.remove("hidden");
-    e.target.classList.add("appear");
-    console.log("animate");
-  }
+  // showDetails = (event) => {
+  //   this.setState({
+  //     selectedMovie:event.target.parentElement.id,
+  //   });
+  // };
 
   render() {
     return (
       <>
-        <Header 
-          animate={this.animate}
-          />
+        <Header />
           <Switch>
             <Route exact path="/dashboard" render={() => {
               return <Display 
                 data={this.state.data}
                 handleChange={this.handleChange}
-                showDetails={this.showDetails}
+                // showDetails={this.showDetails}
               />
             }}>
             </Route>
@@ -89,8 +79,8 @@ class App extends React.Component {
           </Route>
         </Switch>
       </>
-    )
-  }
+    );
+  };
 };
 
 export default App;
