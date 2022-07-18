@@ -26,8 +26,12 @@ class App extends React.Component {
 
   componentDidMount = () => {
     getMovies()
-    .then(movies => this.setState({data: movies.movies}))
-  }
+    .then(movies => this.setState({data: movies.movies}));
+    let movieTrailerOne = getTrailer(694919);
+    let movieTrailerTwo = movieTrailerOne.then(data => {
+      this.setState({movieKey:data.videos[0].key})
+    });
+  };
 
   handleChange = (event) => {
     this.setState({
@@ -35,16 +39,11 @@ class App extends React.Component {
     });
   };
 
-  // showTrailer = (id) => {
-  //   async (id) => {
-  //     await getTrailer(id).then(data => {
-  //         let key = data.videos[0].key
-          
-  //     })
-  //   };
-  // };
-
-
+  getKey = (id) => {
+    getTrailer(id).then(data => {
+      return data.videos[0].key
+    });
+  };
   render() {
     return (
       <>
@@ -54,6 +53,9 @@ class App extends React.Component {
               return <Display 
                 data={this.state.data}
                 handleChange={this.handleChange}
+                keyOne={this.state.movieKey}
+                // getKeyTwo={movieTrailerTest}
+                // showTrailer={this.showTrailer}
               />
             }}>
             </Route>

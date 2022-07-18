@@ -15,9 +15,12 @@ import ReactPlayer from "react-player";
 
 
 
-const Display = ({ data, handleChange }) => {
+const Display = ({ data, handleChange, keyOne }) => {
     let faveMovies = [694919, 501979, 579583];
-    let keys = [];
+    console.log(keyOne)
+
+
+
 
     return (
         <section className="display-boxes">
@@ -33,7 +36,7 @@ const Display = ({ data, handleChange }) => {
             >
                 <SwiperSlide>
                     <ReactPlayer 
-                        // url={`https://www.youtube.com/watch?v=${featuredMovies[0]}`}
+                        url={`https://www.youtube.com/watch?v=${keyOne}`}
                         />
                 </SwiperSlide>
                 <SwiperSlide>
