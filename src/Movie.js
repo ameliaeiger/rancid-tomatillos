@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getDetails } from './apiCalls';
 
 class Movie extends Component {
-    constructor ({ selectedMovie, handleChange }) {
+    constructor ({ selectedMovie }) {
         super();
         this.state = {
             movieInfo: {},
