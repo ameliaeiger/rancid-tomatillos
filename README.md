@@ -1,6 +1,7 @@
 # Movie Nova
 
-![Imgur](https://i.imgur.com/Nt6vOG6b.gif)
+
+[Project GIF](https://imgur.com/Nt6vOG6)
 
 ## Learning Goals
 
