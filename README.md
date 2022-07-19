@@ -37,3 +37,7 @@ It was quickly recognized upon beginning this project that its evolution would b
 ## Future Improvements
 
 In the future, we would like to add movie details to the featured movies' trailer carousel. We would also like to add ratings that responsively indicate the average score to make it easy to compare amongst viewers. We would also like to give users functionality to sort movie both by genre and alphabetically.
+
+## Project Specs and Rubric
+
+[View spec and rubric here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
