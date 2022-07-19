@@ -20,16 +20,25 @@ class App extends React.Component {
       data: movieData.movies,
       currentView: "main",
       error: "",
-      selectedMovie: 694919
+      selectedMovie: 694919,
+      movieKeyOne: "",
+      movieKeyTwo: "",
+      movieKeyThree: ""
     };
   };
 
   componentDidMount = () => {
+    console.log(this.state)
     getMovies()
     .then(movies => this.setState({data: movies.movies}));
-    let movieTrailerOne = getTrailer(694919);
-    let movieTrailerTwo = movieTrailerOne.then(data => {
-      this.setState({movieKey:data.videos[0].key})
+    getTrailer(694919).then(data => {
+      this.setState({movieKeyOne:data.videos[0].key})
+    });
+    getTrailer(337401).then(data => {
+      this.setState({movieKeyTwo:data.videos[0].key})
+    });
+    getTrailer(579583).then(data => {
+      this.setState({movieKeyThree:data.videos[0].key})
     });
   };
 
@@ -39,11 +48,6 @@ class App extends React.Component {
     });
   };
 
-  getKey = (id) => {
-    getTrailer(id).then(data => {
-      return data.videos[0].key
-    });
-  };
   render() {
     return (
       <>
@@ -53,9 +57,9 @@ class App extends React.Component {
               return <Display 
                 data={this.state.data}
                 handleChange={this.handleChange}
-                keyOne={this.state.movieKey}
-                // getKeyTwo={movieTrailerTest}
-                // showTrailer={this.showTrailer}
+                keyOne={this.state.movieKeyOne}
+                keyTwo={this.state.movieKeyTwo}
+                keyThree={this.state.movieKeyThree}
               />
             }}>
             </Route>

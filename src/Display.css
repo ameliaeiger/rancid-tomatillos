@@ -52,6 +52,7 @@ h3 {
 
 .feature-wrapper {
   display: flex;
+  align-items: center;
   border: 2px solid blue;
   width: 50%;
 }

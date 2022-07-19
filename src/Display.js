@@ -15,10 +15,11 @@ import ReactPlayer from "react-player";
 
 
 
-const Display = ({ data, handleChange, keyOne }) => {
+const Display = ({ data, handleChange, keyOne, keyTwo, keyThree }) => {
     let faveMovies = [694919, 501979, 579583];
-    console.log(keyOne)
-
+    console.log("One", keyOne)
+    console.log("Two", keyTwo)
+    console.log("Three", keyThree)
 
 
 
@@ -35,31 +36,42 @@ const Display = ({ data, handleChange, keyOne }) => {
             className="mySwiper"
             >
                 <SwiperSlide>
-                    <ReactPlayer 
-                        url={`https://www.youtube.com/watch?v=${keyOne}`}
-                        />
-                </SwiperSlide>
-                <SwiperSlide>
                     <section className="feature-slide">
-                        <div className="feature-wrapper"></div>
-                        <div className="feature-wrapper"></div>
+                        <div className="feature-wrapper">
+                            <ReactPlayer 
+                            url={`https://www.youtube.com/watch?v=${keyOne}`}
+                            />
+                        </div>
+                        <div className="feature-wrapper">
+                            
+                        </div>
                     </section>
                 </SwiperSlide>
+                    <section className="feature-slide">
+                        <div className="feature-wrapper">
+                            <ReactPlayer 
+                            url={`https://www.youtube.com/watch?v=${keyTwo}`}
+                            />
+                        </div>
+                        <div className="feature-wrapper">
+                            
+                        </div>
+                    </section>
                 <SwiperSlide>
                     <section className="feature-slide">
-                        <div className="feature-wrapper"></div>
-                        <div className="feature-wrapper"></div>
-                    </section>
-                </SwiperSlide>
-                <SwiperSlide>
-                <section className="feature-slide">
-                        <div className="feature-wrapper"></div>
-                        <div className="feature-wrapper"></div>
+                        <div className="feature-wrapper">
+                            <ReactPlayer 
+                            url={`https://www.youtube.com/watch?v=${keyThree}`}
+                            />
+                        </div>
+                        <div className="feature-wrapper">
+                            
+                        </div>
                     </section>
                 </SwiperSlide>
             </Swiper>
         </>
-            <p style={{color:"white", textAlign: "center", fontSize: "25px"}}>Browse the Collection</p>
+            <p style={{color:"white", textAlign: "center", fontSize: "50px", fontFamily:"courier new"}}>Browse</p>
             <Genre 
                 data = {data}
                 handleChange = {handleChange}

@@ -7,14 +7,10 @@
   margin-bottom: 20px;
 }
 
-.header:hover {
-  cursor: pointer;
-}
-
 .appear {
   animation: appear;
   animation-timing-function: ease-in-out;
-  animation-duration: 3.5s;
+  animation-duration: 3s;
 }
 
 .hidden {
@@ -26,15 +22,33 @@
     opacity: 0;
     text-shadow: 0px 0px 0px white;
   }
-  70% {
+  30% {
+    opacity: .7;
     text-shadow: 0px 0px 20px white;
   }
+  50% {
+    opacity: 1;
+    text-shadow: 0px 0px 100px white, 0px 0px 100px white, 0px 0px 50px white;
+  }
+  65% {
+    opacity: .7;
+    text-shadow: 0px 0px 30px white, 0px 0px 50px white, 0px 0px 50px white;
+  }
+  75% {
+    opacity: .9;
+    text-shadow: 0px 0px 100px white, 0px 0px 75px white, 0px 0px 50px white, 0px 0px 50px white, 0px 0px 30px white, 0px 0px 20px white;
+  }
+  80% {
+    opacity: .8;
+    text-shadow: 0px 0px 100px white, 0px 0px 75px white, 0px 0px 50px white, 0px 0px 50px white, 0px 0px 30px white;
+  }
   90% {
-    text-shadow: 0px 0px 60px;
+    opacity: 1;
+    text-shadow: 0px 0px 100px white, 0px 0px 50px white, 0px 0px 50px white, 0px 0px 30px white;
   }
   100% {
     opacity: 1;
-    text-shadow: 0px 0px 50px white;
+    text-shadow: 0px 0px 700px white, 0px 0px 400px white, 0px 0px 300px white, 0px 0px 200px white, 0px 0px 100px white, 0px 0px 100 white, 0px 0px 30px white;
   }
 }
 
